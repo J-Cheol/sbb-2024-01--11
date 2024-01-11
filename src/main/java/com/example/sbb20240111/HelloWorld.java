@@ -36,6 +36,7 @@ public class HelloWorld
     {
         return ((contribution, chunkContext) ->
         {
+            log.info("Hello World");
             System.out.println("Hello World");
             return RepeatStatus.FINISHED;
         });
