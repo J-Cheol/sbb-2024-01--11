@@ -17,22 +17,22 @@ import org.springframework.transaction.PlatformTransactionManager;
 public class HelloWorld
 {
     @Bean
-    public Job HelloJob(JobRepository jobRepository, Step simpleStep1)
+    public Job HelloJob(JobRepository jobRepository, Step helloStep1)
     {
         return new JobBuilder("HelloJob", jobRepository)
-                .start(simpleStep1)
+                .start(helloStep1)
                 .build();
     }
 
     @Bean
-    public Step HelloStep(JobRepository jobRepository, Tasklet testTasklet, PlatformTransactionManager platformTransactionManager)
+    public Step HelloStep1(JobRepository jobRepository, Tasklet HelloStep1Tesklet1, PlatformTransactionManager platformTransactionManager)
     {
-        return new StepBuilder("HelloStep", jobRepository)
-                .tasklet(testTasklet, platformTransactionManager).build();
+        return new StepBuilder("HelloStep1Tesklet1", jobRepository)
+                .tasklet(HelloStep1Tesklet1, platformTransactionManager).build();
     }
 
     @Bean
-    public Tasklet testTasklet()
+    public Tasklet HelloStep1Tasklet1()
     {
         return ((contribution, chunkContext) ->
         {
